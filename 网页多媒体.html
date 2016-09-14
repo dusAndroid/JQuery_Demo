@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <!--jwPlayer插件 zepto 移动端 video 兼容方案---->-->
+    <audio  id='audio' src="music.mp3"></audio>
+    <video controls = "controls">
+        <source src="fun.mp4" type="video/mp4"/>
+        <source src="fun.ogg" type="video/ogg"/>
+    </video>
+    <button id="btn">播放</button>
+
+</body>
+<script>
+    var btn = document.getElementById("btn");
+    var audio = document.getElementById("audio");
+    var isPlay = false;
+    btn.addEventListener("click",function(){
+        if(!isPlay){
+            audio.play();
+            isPlay = true;
+            this.innerHTML="停止";
+        }else{
+            isPlay = false;
+            this.innerHTML = "播放";
+            audio.pause();
+        }
+    });
+</script>
+</html>

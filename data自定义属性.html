@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <ul id="list"></ul>
+    <div id="info"></div>
+</body>
+<script>
+    <!-- 掌握学习自定义属性的应用-->
+    var data = {
+      01:{"name":"zhangsan",age:18,sex:"男"},
+      02:{"name":"李四",age:19,sex:"男"},
+      03:{"name":"王五",age:20,sex:"女"},
+      04:{"name":"高六",age:22,sex:"女"}
+    };
+    var list  =document.getElementById("list");
+    var info = document.getElementById("info");
+    for(var key in data){
+        var item = data[key];
+        var li = document.createElement("li");
+        li.setAttribute("data-age",item.age);
+        li.setAttribute("data-sex",item.sex);
+        li.innerHTML = item.name;
+        list.appendChild(li);
+
+        li.addEventListener("click",function(){
+           alert(this.dataset.age);
+        });
+    }
+</script>
+</html>

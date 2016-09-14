@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>登录验证</title>
+</head>
+<body>
+    <div id="showInfo"></div>
+    <form id="form">
+        <p>用户名: <input id="username" type="text" value="admin"/></p>
+        <p>密  码：<input id="password" type="text" value="123"/></p>
+        <input  id="submit" type="button" value="提交"/>
+    </form>
+    <script>
+        var divInfo = document.getElementById("showInfo");
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var btn = document.getElementById('submit');
+
+        btn.addEventListener('click',function(){
+
+            var xhr = null;
+            if(window.XMLHttpRequest){
+                xhr = new XMLHttpRequest();
+            }else{
+                xhr =new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            var url ='check.php?'+'username='+username+'&password='+password;
+            xhr.open('get',url,true);
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    if(xhr.status==200){
+                        var data = xhr.responseText;
+                        alert(data);
+                        if(data==1){
+                            divInfo.innerHTML = "登录成功";
+                        }else{
+                            divInfo.innerHTML = "登录失败";
+                        }
+
+                    }
+                }
+
+            }
+
+            xhr.send(null);
+
+        });
+
+
+    </script>
+</body>
+</html>
