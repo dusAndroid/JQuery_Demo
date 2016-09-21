@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> E:first-child_CSS</title>
+    <meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com"/>
+    <style>
+        .content {
+            width: 500px;
+            text-align: center;
+            margin: auto;
+        }
+
+        .content h1 {
+            font-size: 18px;
+        }
+
+        li:first-child {
+            color: #f00;
+            list-style-type: none;
+        }
+        .test span:first-child{
+            color: #49fff3;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <h1>注意是li:first-child，而不是ul:first-child</h1>
+    <ul>
+        <li>结构性伪类选择符 E:first-child</li>
+        <li>结构性伪类选择符 E:first-child</li>
+        <li>结构性伪类选择符 E:first-child</li>
+        <li>结构性伪类选择符 E:first-child</li>
+    </ul>
+    <div class="test">
+        <span>我是一个小span</span>
+        <p>我是一个段落</p>
+    </div>
+</div>
+
+</body>
+
+</html>

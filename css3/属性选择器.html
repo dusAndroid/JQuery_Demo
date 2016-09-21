@@ -2,9 +2,54 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>属性选择器</title>
+    <title>7个属性选择器</title>
+    <style>
+        .header{
+            font-size: 18px;
+            font-family: '微软雅黑';
+            line-height: 40px;
+            text-align: center;
+        }
+        div.box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid pink;
+            float: left;
+            margin: 10px;
+        }
+        a[href]{
+            text-decoration: none;
+            color: #72b5ff;
+            height: 100%;
+            text-align: center;
+            display: block;
+            overflow: hid;
+        }
+        a[href='#']{
+            text-decoration: none;
+            color: #49fff3;
+            height: 100%;
+            text-align: center;
+            display: block;
+        }
+
+        div[class~= multi]{
+            border: 2px solid red;
+        }
+
+    </style>
 </head>
 <body>
+    <header class="header">属性选择器</header>
+    <div class="box">
+        <a href="">存在某个属性</a>
+    </div>
+    <div class="box"><a href="#">属性值完全等于</a></div>
+    <div class="box multi"><a href="">E[attr~=attr]表示的一个单独的属性值 这个属性值是以空格分隔的</a></div>
+    <div class="box-style"><a href="">E[attr|=val] 表示的要么一个单独的属性值 要么这个属性值是以“-”分隔的</a></div>
+    <div class="box"><a href="">E[attr*=val] 属性值任意位置包含val字符</a></div>
+    <div class="box"><a href="">E[attr^=val] 属性值以val开始</a></div>
+    <div class="box"><a href="">E[attr$=val] 属性值以val结束</a></div>
 
 </body>
 </html>

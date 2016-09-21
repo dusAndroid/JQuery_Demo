@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8" />
+    <title>结构性伪类选择符 E:only-child_CSS参考手册_web前端开发参考手册系列</title>
+    <meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+    <style>
+        h1 {
+            font-size: 16px;
+        }
+        li:only-child {
+            color: #f00;
+        }
+        .content p:only-child{
+            color: #5CADFF;
+        }
+        .main{
+            border: 1px solid #999999;
+            padding: 5px;
+        }
+        .main span:only-of-type{
+            color: #e7bbff;
+        }
+    </style>
+</head>
+<body>
+    <!--在只有唯一一个子元素时使用生效-->
+    <h1>只有唯一一个子元素</h1>
+    <ul>
+        <li>结构性伪类选择符 E:only-child</li>
+    </ul>
+    <h1>有多个子元素</h1>
+    <ul>
+        <li>结构性伪类选择符 E:only-child</li>
+        <li>结构性伪类选择符 E:only-child</li>
+        <li>结构性伪类选择符 E:only-child</li>
+    </ul>
+    <div class="content">
+        <p>段落段落段落段落段落段落段落</p>
+    </div>
+    <div class="main">
+        <p>段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落段落</p>
+        <span>行内文字行内文字行内文字行内文字行内文字行内文字行内文字行内文字行内文字行内文字行内文字行内文字</span>
+    </div>
+</body>
+</html>

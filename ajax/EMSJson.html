@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>EMS</title>
+    <style>
+        .main{
+            width: 400px;
+            text-align: center;
+            margin: 100px auto;
+            background-color: pink;
+            padding: 10px;
+        }
+        .info{
+            background-color: #72b5ff;
+        }
+        li{
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <input id="code" type="text"/>
+        <input id="btn" type="button" value="查询"/>
+        <div id="content" class="info"></div>
+    </div>
+</body>
+</html>
+
+<script>
+    window.onload = function(){
+        var code = document.querySelector("#code");
+        var btnQuery = document.querySelector("#btn");
+        var content = document.querySelector("#content");
+
+        btnQuery.addEventListener("click",function(){
+
+            var xhr = null;
+
+            if(window.XMLHttpRequest){
+                xhr = new XMLHttpRequest();
+            }else{
+                xhr = new ActiveXObject('Microsoft.XMLHTTP');
+            }
+            var url = 'queryEms.php?code='+code.value+"&_t="+new Date().getTime();
+            xhr.open('get',url,true);
+
+            xhr.send(null);
+
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4){
+                    if(xhr.status == 200){
+                        var data = xhr.responseText;//获取json数据
+                        var json = JSON.parse(data);
+
+                        if(json.status == 0){
+                            var arr = json.data.info.context;
+                            var tag='';
+                            for(var i=0;i<arr.length;i++){
+                                var item = arr[i];
+                                var date = new Date();
+                                date.setTime(item.time+"000");
+                                var time = date.getFullYear()+'年'+(date.getMonth()+1)+'月'+date.getDay()+'日'+(date.getHours()>12?'下午':'上午')+ date.getHours()%12+':'+ date.getMinutes()+':'+date.getSeconds();
+                                var desc = item.desc;
+                                tag += '<li><div>'+time+'</div><div>'+desc+'</div></li>'
+                            }
+                            console.log(tag);
+                            var ul = document.createElement('ul');
+                            ul.innerHTML = tag;
+                            content.appendChild(ul);
+                        }
+
+                    }
+                }
+            }
+
+        });
+    }
+</script>

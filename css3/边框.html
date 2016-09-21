@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> 飛天网事--DIV+CSS代码阴阳太极图 </title>
+    <meta charset="utf-8"/>
+    <meta name="description" content="飛天网事，WEB前端开发，纯css3代码时钟精彩案例"/>
+    <meta name="keywords" content="飛天网事，WEB前端开发，HTML5，CSS3，jQuery，"/>
+    <meta name="author" content="R.tian @eduppp.cn 2015">
+    <link rel="shortcut icon" href="http://eduppp.cn/images/logo4.gif"/>
+    <link rel="apple-touch-icon" href="http://eduppp.cn/images/logo.gif"/>
+    </head>
+<body>
+<style type="text/css">
+    #taiji {
+        margin: auto;
+        width: 0;
+        height: 300px;
+        border-left: 150px solid #fff;
+        border-right: 150px solid #000;
+        box-shadow: 0 0 20px 0 #333;
+        border-radius: 100%;
+    }
+
+    #yin {
+        position: absolute;
+        margin: 150px 0 0 -75px;
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+        background: #000;
+    }
+
+    #yin:after {
+        position: absolute;
+        margin: 50px 0 0 50px;
+        content: " ";
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background: #fff;
+    }
+
+    #yang {
+        position: absolute;
+        margin: 0 0 0 -75px;
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+        background: #fff;
+    }
+
+    #yang:after {
+        position: absolute;
+        margin: 50px 0 0 50px;
+        content: " ";
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        background: #000;
+    }
+</style>
+<div id="taiji">
+    <div id="yin"></div>
+    <div id="yang"></div>
+</div>
+</body>
+</html>
